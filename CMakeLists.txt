@@ -15,12 +15,19 @@ include(CMakeDependentOption)
 include(GenerateExportHeader)
 include(FetchContent)
 
-# Enables ASAN & Pedantic output
+# Enables debug output 
 cmake_dependent_option(ITZY_DEBUG 
   "Build Itzy to debug" ON
   "CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME" ON)
 
-# Add the C files to compile 
+# Enables building tests 
+cmake_dependent_option(ITZY_BUILD_TESTS
+  "Build Itzy's Tests" ON
+  "CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME" ON)
+
+# Enables linking ASAN for debugging
+option(ITZY_ASAN OFF)
+
 file(GLOB sources CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/src/*.c)
 add_library(${PROJECT_NAME} STATIC)
 target_sources(${PROJECT_NAME} PRIVATE ${sources})
@@ -43,8 +50,8 @@ target_compile_options(${PROJECT_NAME}
   $<$<NOT:$<C_COMPILER_ID:MSVC>>:-Wall -Wextra -pedantic>
   $<$<C_COMPILER_ID:MSVC>:/WX /W4>)
 
-# Enables ASAN & Pedantics
-if(ITZY_DEBUG)
+# Enables ASAN
+if(ITZY_ASAN)
   target_compile_options(${PROJECT_NAME}
     PUBLIC
     $<$<C_COMPILER_ID:MSVC>:/fsanitize=address>
@@ -54,7 +61,9 @@ if(ITZY_DEBUG)
     PUBLIC
     $<$<C_COMPILER_ID:MSVC>:/fsanitize=address>
     $<$<NOT:$<C_COMPILER_ID:MSVC>>:-g -fsanitize=address>)
+endif()
 
+if(ITZY_BUILD_TESTS)
   # Add the tests to be compiled
   add_subdirectory(tests)
 endif()

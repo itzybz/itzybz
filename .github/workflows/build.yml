@@ -10,11 +10,11 @@ jobs:
       matrix:
         build-type: [Debug, Release]
         os: [ubuntu-latest, macos-latest, windows-latest]
-        cc: [gcc-8, gcc-9, clang-8, clang-9]
+     #  cc: [gcc-8, gcc-9, clang]
     env:
       CMAKE_GENERATOR: Ninja
       GITHUB_TOKEN: ${{ github.token }}
-      CC: ${{ matrix.cc }}
+      # CC: ${{ matrix.cc }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2

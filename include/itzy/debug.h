@@ -13,6 +13,4 @@
 #endif
 #endif
 
-void test(void);
-
 #endif

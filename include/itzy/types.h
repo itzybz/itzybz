@@ -13,14 +13,12 @@ typedef int   s32;
 
 // TODO change if we need alpha or if padding goes to 32 bit anyway
 typedef union {
-  u8 v[3];
   struct {
     u8 r, g, b;
   };
 } iz_color;
 
 typedef union {
-  ITZY_VEC_SIZE v[2];
   struct {
     ITZY_VEC_SIZE x, y;
   };
@@ -33,7 +31,6 @@ typedef union {
 } iz_v2;
 
 typedef union {
-  ITZY_VEC_SIZE v[3];
   struct {
     ITZY_VEC_SIZE x, y, z;
   };
@@ -43,15 +40,11 @@ typedef union {
 } iz_v3;
 
 typedef union {
-  ITZY_VEC_SIZE v[4];
   struct {
     ITZY_VEC_SIZE x, y, z, w;
   };
   struct {
     ITZY_VEC_SIZE min_x, min_y, max_x, max_y;
-  };
-  struct {
-    ITZY_VEC_SIZE x, y, width, height;
   };
 } iz_v4;
 

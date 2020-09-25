@@ -8,7 +8,7 @@
 </div>
 
 ### About
-Itzybz is a free and open source fantasy game console! Much of it is still under construction currently. Check back soon for more info!
+Itzybz is a free and open source fantasy game console, aimed at running on real hardware! Much of it is still under construction currently. Check back soon for more info!
 
 ### There are currently no official releases
 

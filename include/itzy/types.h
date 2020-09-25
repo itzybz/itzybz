@@ -1,6 +1,10 @@
 #ifndef ITZY_TYPES_H
 #define ITZY_TYPES_H
 
+#if defined(_cplusplus)
+extern "C" {
+#endif
+
 typedef unsigned char  u8;
 typedef unsigned short u16;
 typedef unsigned int   u32;
@@ -47,5 +51,9 @@ typedef union {
     ITZY_VEC_SIZE min_x, min_y, max_x, max_y;
   };
 } iz_v4;
+
+#if defined(_cplusplus)
+}
+#endif
 
 #endif

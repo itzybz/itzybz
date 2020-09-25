@@ -1,11 +1,11 @@
 #ifndef ITZY_SYS_H
 #define ITZY_SYS_H
 
-#include <stdint.h>
-
-#ifdef __cplusplus
+#if defined(_cplusplus)
 extern "C" {
 #endif
+
+#include <stdint.h>
 
 #define SEC_TO_NS   1e-9
 #define SEC_TO_MCS  1e-6
@@ -31,7 +31,7 @@ extern "C" {
 #define NS_TO_MIN  NS_TO_SEC * 60
 #define NS_TO_HOUR NS_TO_MIN * 60
 
-/* String based data input/output*/
+/* String based data input/output */
 typedef struct {
   char *   data, *cursor;
   uint32_t length, capacity;

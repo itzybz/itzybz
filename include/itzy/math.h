@@ -1,6 +1,10 @@
 #ifndef ITZY_MATH_H
 #define ITZY_MATH_H
 
+#if defined(_cplusplus)
+extern "C" {
+#endif
+
 #include <itzy/types.h>
 
 #define _max(a, b) ((a) > (b) ? (a) : (b))
@@ -109,5 +113,9 @@ ITZY_FUNC iz_v4 iz_v4_max(iz_v4 const a, iz_v4 const b) {
 ITZY_FUNC iz_v4 iz_v4_clamp(iz_v4 const val, iz_v4 const min, iz_v4 const max) {
   return iz_v4_min(iz_v4_max(val, min), max);
 }
+
+#if defined(_cplusplus)
+}
+#endif
 
 #endif

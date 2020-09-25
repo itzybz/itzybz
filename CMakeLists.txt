@@ -63,8 +63,8 @@ if(ITZY_ASAN)
     $<$<NOT:$<C_COMPILER_ID:MSVC>>:-g -fsanitize=address>)
 endif()
 
+# Add the tests to be compiled
 if(ITZY_BUILD_TESTS)
-  # Add the tests to be compiled
   add_subdirectory(tests)
 endif()
 

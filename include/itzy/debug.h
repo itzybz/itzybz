@@ -1,6 +1,10 @@
 #ifndef ITZY_DEBUG_H
 #define ITZY_DEBUG_H
 
+#if defined(_cplusplus)
+extern "C" {
+#endif
+
 #include <stdio.h>
 
 #ifndef ITZY_FUNC_DBG
@@ -13,4 +17,7 @@
 #endif
 #endif
 
+#if defined(_cplusplus)
+}
+#endif
 #endif
